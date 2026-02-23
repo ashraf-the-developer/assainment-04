@@ -34,13 +34,19 @@ rejectedButton.addEventListener("click" , function(){
 
 
 let interviewCount = 0;
+// let interviewCountMinace = 2;
+
+let totalCount = 8;
 
 document.getElementById("interview-card-btn").addEventListener("click", function () {
 
  
     interviewCount++;
+    // interviewCountMinace--;
+    totalCount--;
 
     document.getElementById("interview-count").innerText = interviewCount;
+    document.getElementById("Total-count").innerText = totalCount;
 
     const badge = document.getElementById("badge");
     badge.innerText = "Interview";
@@ -53,7 +59,25 @@ document.getElementById("interview-card-btn").addEventListener("click", function
         padding: 15px;
         font-size: 18px;
         border-radius: 10px;
-    `;
+
+    `
+    const card = document.querySelector(".card1");
+    const add =document.getElementById("interview-div");
+    add.appendChild(card);
+
+    const noJob = document.getElementById("no-job-1");
+    noJob.classList.add("hidden");
+    const noJobReject = document.getElementById("no-job-2");
+    noJobReject.classList.remove("hidden");
+
+    // document.getElementById("rejected-card-btn").addEventListener("click", function(){
+    //     document.getElementById("interview-count").innerText = interviewCountMinace;
+        
+        
+
+    // })
+
+
 
 
 
@@ -61,16 +85,19 @@ document.getElementById("interview-card-btn").addEventListener("click", function
 });
 
 
-// reject
+// rejected
 
 let rejectCount = 0;
+let total = 8;
 
 document.getElementById("rejected-card-btn").addEventListener("click", function () {
 
  
     rejectCount++;
+    total--;
 
     document.getElementById("rejected-count").innerText = rejectCount;
+    document.getElementById("Total-count").innerText = total;
 
     const badge = document.getElementById("badge");
     badge.innerText = "Rejected";
@@ -85,18 +112,54 @@ document.getElementById("rejected-card-btn").addEventListener("click", function 
         border-radius: 10px;
     `;
 
-    const noJobHide = document.getElementById("no-job");
-    noJobHide.classList.add("hidden");
-    const parentElement = document.getElementById("1st-parent");
-    const child = document.getElementById("1st-child");
+     const card = document.querySelector(".card1");
+    const add =document.getElementById("1st-parent");
+    add.appendChild(card);
 
-    parentElement.appendChild(child);
-
+    const noJob = document.getElementById("no-job-1");
+    noJob.classList.remove("hidden");
+    const noJobReject = document.getElementById("no-job-2");
+    noJobReject.classList.add("hidden");
 
 
 
 });
 
+document.querySelectorAll(".delete").forEach(icon => {
+    icon.addEventListener("click", function () {
+        const card = this.closest(".card1");
+        card.remove();
+
+        const noJob = document.getElementById("no-job-1");
+    noJob.classList.remove("hidden");
+    const noJobReject = document.getElementById("no-job-2");
+    noJobReject.classList.remove("hidden");
+
+    });
+
+
+});
+
+
+
+// card 2
+
+
+
+document.querySelectorAll(".delete-2").forEach(icon => {
+    icon.addEventListener("click", function () {
+        const card = this.closest(".card2");
+        card.remove();
+
+        const noJob = document.getElementById("no-job-1");
+    noJob.classList.remove("hidden");
+    const noJobReject = document.getElementById("no-job-2");
+    noJobReject.classList.remove("hidden");
+
+    });
+
+
+});
 
 
 
